@@ -24,3 +24,4 @@ tools your operating system provides to daemonize it instead.
 
 [Gopher]: https://en.wikipedia.org/wiki/Gopher_(protocol)
 [Go]: http://www.golang.org/
+[the RFC]: https://tools.ietf.org/html/rfc1436
