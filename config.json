@@ -1,0 +1,6 @@
+{
+    "ListenAddr": "",
+    "ListenPort": 70,
+    "ServerName": "",
+    "GopherRoot": "./gopher"
+}
