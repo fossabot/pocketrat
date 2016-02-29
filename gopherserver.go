@@ -37,16 +37,16 @@ func RunServer(listenAddr string, listenPort uint16, serverName string, gopherRo
 
 func handleConnection(conn net.Conn) {
     defer conn.Close()
-    
-    var buf [512]byte
-	for {
-		n, err := conn.Read(buf[0:])
-		if err != nil {
-			conn.Close()
-			return
-		}
 
-		s := string(buf[0:n])
+    var buf [512]byte
+    for {
+        n, err := conn.Read(buf[0:])
+        if err != nil {
+            conn.Close()
+            return
+        }
+
+        s := string(buf[0:n])
         if (s == "\r\n") {
             conn.Write(directoryIndex(""))
         } else {
