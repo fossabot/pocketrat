@@ -4,9 +4,10 @@ import (
     "encoding/json"
     "io/ioutil"
     "os"
+    "path/filepath"
 )
 
-// The Configuration ...
+// The Configuration struct represents the server configuration.
 type Configuration struct {
     ListenAddr    string
     ListenPort    uint16
@@ -14,7 +15,7 @@ type Configuration struct {
     GopherRoot    string
 }
 
-// LoadConfiguration ...
+// LoadConfiguration reads configuration from config.json and returns a populated Configuration struct.
 func LoadConfiguration(path string) (config Configuration, err error) {
     text, readErr := ioutil.ReadFile(path)
     
@@ -32,7 +33,15 @@ func LoadConfiguration(path string) (config Configuration, err error) {
         }
         
         if c.GopherRoot == "" {
-            c.GopherRoot = "."
+            c.GopherRoot, err = filepath.Abs(".")
+            if err != nil {
+                panic(err)
+            }
+        } else {
+            c.GopherRoot, err = filepath.Abs(c.GopherRoot)
+            if err != nil {
+                panic(err)
+            }
         }
         
         if c.ServerName == "" {
