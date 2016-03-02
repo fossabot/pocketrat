@@ -8,6 +8,7 @@ tab-separated fields: the file, and the description that should
 appear in the Gopher index.  Blank file names will add entries
 of type `i` (informational message).  Files not listed in `gopher.index`
 will not appear in directory indices sent to clients.
+
 ### Fixed
 - The [Gopher RFC](https://tools.ietf.org/html/rfc1436) specifies that
 when sending menus or text files, the transmission should be terminated
