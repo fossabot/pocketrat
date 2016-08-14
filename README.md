@@ -2,8 +2,8 @@
 PocketRat is a [Gopher] server written in [Go].
 
 It was written as a learning exercise, and with only infrequent references to
-[the RFC] and none to any existing implementations.  If it worked with `lynx`
-I called it good.
+[the RFC] and none to any existing server implementations.  If it worked with
+`lynx` I called it good.
 
 As this was written as a learning exercise, and because I am a .NET developer by
 day, I am sure the code is horrible, unidiomatic Go.  Please forgive me.
