@@ -175,12 +175,6 @@ func getTypeSigil(file os.FileInfo) string {
 		// resort to mime types
 		mimeType := mime.TypeByExtension(ext)
 
-		// mime "helpfully" provides charset parameters for text/* types,
-		// but we don't really need that
-		if strings.Index(mimeType, ";") > -1 {
-			mimeType = mimeType[0:strings.Index(mimeType, ";")]
-		}
-
 		if strings.HasPrefix(mimeType, "image/") {
 			return "I"
 		}
