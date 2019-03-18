@@ -61,6 +61,9 @@ func handleConnection(conn net.Conn) {
 						bytes, err := ioutil.ReadFile(filepath.Join(_gopherRoot, req))
 						if err == nil {
 							conn.Write(bytes)
+							if getTypeSigil(stat) == "0" {
+								conn.Write([]byte(".\r\n"))
+							}
 						} else {
 							conn.Write(gopherError(err))
 						}
@@ -216,5 +219,5 @@ func gopherError(err error) []byte {
 }
 
 func gopherErrorMessage(errMsg string) []byte {
-	return []byte(fmt.Sprintf("3%s\t(error)\tpocketrat.error.invalid\t0\r\n", errMsg))
+	return []byte(fmt.Sprintf("3%s\t(error)\tpocketrat.invalid\t0\r\n.\r\n", errMsg))
 }
