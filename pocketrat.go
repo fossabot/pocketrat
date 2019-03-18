@@ -5,7 +5,7 @@ import (
 )
 
 // Version string representing the current version of PocketRat.
-const Version = "0.1.0"
+const Version = "0.1.1"
 
 func main() {
 	fmt.Println("PocketRat version", Version)

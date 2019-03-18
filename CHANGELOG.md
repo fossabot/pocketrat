@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.1.1 - 2019-03-17
+### Added
+- `Gophermap` files are now supported in addition to `gopher.index` files.
+However, if both files exist, `gopher.index` will be used.
+
+### Fixed
+- The "fix" in 0.1.0 that ceased terminating directory listings and
+text files with `.` has been reverted and corrected.
+
 ## 0.1.0 - 2016-03-01
 ### Added
 - Custom directory indices.  In any directory in your gopherspace
