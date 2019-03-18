@@ -89,6 +89,8 @@ func directoryIndex(relativePath string) []byte {
 
 	if _, err := os.Stat(filepath.Join(reqPath, "gopher.index")); err == nil {
 		index = append(index, sendDirectoryIndex(relativePath)...)
+	} else if _, err := os.Stat(filepath.Join(reqPath, "Gophermap")); err == nil {
+		index = append(index, sendDirectoryIndex(relativePath)...)
 	} else {
 		index = append(index, generateDirectoryIndex(relativePath)...)
 	}
@@ -123,6 +125,22 @@ func sendDirectoryIndex(relativePath string) []byte {
 					index += fmt.Sprintf("i%s\t(message)\tpocketrat.invalid\t0\r\n", text)
 				}
 			}
+		}
+
+		return []byte(index)
+	} else if fileBytes, err := ioutil.ReadFile(filepath.Join(reqPath, "Gophermap")); err == nil {
+		var index string
+
+		file := string(fileBytes)
+		lines := strings.Split(file, "\n")
+
+		for _, l := range lines {
+			if !strings.ContainsAny(l, "\t") {
+				index += "i" + l + "\t(message)\tpocketrat.invalid\t0"
+			} else {
+				index += l
+			}
+			index += "\r\n"
 		}
 
 		return []byte(index)
