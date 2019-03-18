@@ -98,8 +98,9 @@ func directoryIndex(relativePath string) []byte {
 		index = append(index, generateDirectoryIndex(relativePath)...)
 	}
 
-	index = append(index, []byte("i________________________________________________________________________________\r\n")...)
-	index = append(index, []byte(fmt.Sprintf("i%80s", fmt.Sprintf("PocketRat/%s\r\n", Version)))...)
+	index = append(index, []byte("i________________________________________________________________________________\t(message)\tpocketrat.invalid\t0\r\n")...)
+	index = append(index, []byte(fmt.Sprintf("i%80s\t(message)\tpocketrat.invalid\t0\r\n", fmt.Sprintf("PocketRat/%s", Version)))...)
+	index = append(index, []byte(".\r\n")...)
 
 	return index
 }
