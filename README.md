@@ -22,6 +22,40 @@ Run `pocketrat`.  It does not daemonize itself because some googling suggested
 that there are issues around that when goroutines are involved.  Use whatever
 tools your operating system provides to daemonize it instead.
 
+### Directory indices
+PocketRat will generate directory indices automatically, but you can also provide
+them: PocketRat supports its own `gopher.index` format as well as the more standard
+`Gophermap` format.  If both files exist in a directory, PocketRat will prefer `gopher.index`, though this format is simpler and less capable than `Gophermap`.
+
+#### `gopher.index`
+A `gopher.index` file consists of multiple lines with two tab-separated fields: the
+file name and the text to associate with that entry.  An entry with no file name
+will be sent as an informational message.  PocketRat will attempt to infer the type
+of the entry will be inferred from the file name; unrecognized file types will be
+assumed to be binary.
+
+##### Example `gopher.index`
+```
+	Welcome to the PocketRat demonstration server.
+README.md	PocketRat README
+CHANGELOG.md	PocketRat CHANGELOG
+```
+
+#### `Gophermap`
+The `Gophermap` format is as described at [Wikipedia]: a selector line beginning
+with a type sigil, followed by a display string, a selector, hostname, and port,
+or a commnt line containing no tab characters that will be sent to the client as
+an informational message.
+
+##### Example `Gophermap`
+```
+Welcome to the PocketRat demonstration server.
+This line and the one before it are comment lines.
+0README.md	PocketRat README	/README.md	localhost	70
+0CHANGELOG.md	PocketRat CHANGELOG	/CHANGELOG.md	localhost	70
+```
+
 [Gopher]: https://en.wikipedia.org/wiki/Gopher_(protocol)
+[Wikipedia]: https://en.wikipedia.org/wiki/Gopher_(protocol)#Source_code_of_a_menu
 [Go]: http://www.golang.org/
 [the RFC]: https://tools.ietf.org/html/rfc1436
