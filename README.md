@@ -31,8 +31,7 @@ them: PocketRat supports its own `gopher.index` format as well as the more stand
 A `gopher.index` file consists of multiple lines with two tab-separated fields: the
 file name and the text to associate with that entry.  An entry with no file name
 will be sent as an informational message.  PocketRat will attempt to infer the type
-of the entry will be inferred from the file name; unrecognized file types will be
-assumed to be binary.
+of the entry from the file name; unrecognized file types will be assumed to be binary.
 
 ##### Example `gopher.index`
 ```
