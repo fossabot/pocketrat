@@ -1,4 +1,6 @@
 # PocketRat
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fmyount%2Fpocketrat.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fmyount%2Fpocketrat?ref=badge_shield)
+
 PocketRat is a [Gopher] server written in [Go].
 
 It was written as a learning exercise, and with only infrequent references to
@@ -58,3 +60,7 @@ This line and the one before it are comment lines.
 [Wikipedia]: https://en.wikipedia.org/wiki/Gopher_(protocol)#Source_code_of_a_menu
 [Go]: http://www.golang.org/
 [the RFC]: https://tools.ietf.org/html/rfc1436
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fmyount%2Fpocketrat.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fmyount%2Fpocketrat?ref=badge_large)
